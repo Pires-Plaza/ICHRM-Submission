@@ -281,4 +281,4 @@ Expected constants:
 - Keep frontend and backend independently testable.
 - When the Apps Script endpoint URL is known, record it in `Config.gs` comments and here.
 
-**Apps Script Web App URL**: _not yet deployed_
+**Apps Script Web App URL**: `https://script.google.com/macros/s/AKfycbzEMUh6CLrjaNw-SHt9gefWgeP-BX3CsYoG8_Q4HHrW6FnE1vAIL0lyI3mMxTwsKpIcNg/exec`

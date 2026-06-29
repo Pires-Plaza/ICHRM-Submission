@@ -1,5 +1,5 @@
 // Set this once the Apps Script Web App is deployed.
-export const ENDPOINT_URL = '';
+export const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbzEMUh6CLrjaNw-SHt9gefWgeP-BX3CsYoG8_Q4HHrW6FnE1vAIL0lyI3mMxTwsKpIcNg/exec';
 
 export function fileToBase64(file) {
   return new Promise((resolve, reject) => {
