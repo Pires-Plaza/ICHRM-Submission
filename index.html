@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICHRM 2027 — Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/form.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <h1 class="site-header__title">6th International Conference in HRM</h1>
+      <p class="site-header__subtitle">Registration Form — 2027</p>
+    </div>
+  </header>
+
+  <main class="page-main">
+
+    <form id="registrationForm" novalidate>
+
+      <!-- 1. Participant Identification -->
+      <section class="form-card">
+        <h2 class="form-card__title">Participant Identification</h2>
+
+        <div class="field-row">
+          <div class="text-field">
+            <input id="name" name="name" type="text" placeholder=" " required>
+            <label for="name">Full Name</label>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="text-field">
+            <input id="institution" name="institution" type="text" placeholder=" " required>
+            <label for="institution">Institution / Affiliation</label>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="text-field">
+            <input id="address" name="address" type="text" placeholder=" " required>
+            <label for="address">Address</label>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="text-field">
+            <input id="countryCity" name="countryCity" type="text" placeholder=" " required>
+            <label for="countryCity">Country, City and Zip Code</label>
+          </div>
+        </div>
+        <div class="field-row field-row--two">
+          <div class="text-field">
+            <input id="email" name="email" type="email" placeholder=" " required>
+            <label for="email">Email</label>
+          </div>
+          <div class="text-field">
+            <input id="phone" name="phone" type="tel" placeholder=" " required>
+            <label for="phone">Phone</label>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="text-field">
+            <input id="academicDegree" name="academicDegree" type="text" placeholder=" " required>
+            <label for="academicDegree">Academic Degree</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Conference Participation -->
+      <section class="form-card">
+        <h2 class="form-card__title">Conference Participation</h2>
+
+        <div class="radio-group">
+          <p class="radio-group__label">Are you attending as a presenting author?</p>
+          <label class="radio-label">
+            <input type="radio" name="isAuthor" value="yes">
+            <span>Yes</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="isAuthor" value="no">
+            <span>No</span>
+          </label>
+        </div>
+
+        <div id="authorSection" hidden>
+          <hr class="section-divider">
+
+          <div class="field-row">
+            <div class="text-field">
+              <input id="paperTitle" name="paperTitle" type="text" placeholder=" ">
+              <label for="paperTitle">Paper Title</label>
+            </div>
+          </div>
+
+          <div class="radio-group">
+            <p class="radio-group__label">Presentation Format</p>
+            <label class="radio-label">
+              <input type="radio" name="presentationFormat" value="onsite">
+              <span>Onsite</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="presentationFormat" value="online">
+              <span>Online</span>
+            </label>
+          </div>
+
+          <div class="file-upload">
+            <p class="file-upload__label">Paper <span class="field-hint">(DOCX, max 20 MB)</span></p>
+            <input type="file" id="paperInput" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+            <div class="file-upload__control">
+              <button type="button" class="btn-outlined" id="paperBtn">Upload Paper</button>
+              <span id="paperName" class="file-upload__name">No file selected</span>
+            </div>
+            <p id="paperError" class="inline-error" hidden></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Registration & Payment -->
+      <section class="form-card">
+        <h2 class="form-card__title">Registration &amp; Payment</h2>
+
+        <div class="radio-group">
+          <p class="radio-group__label">Registration Type</p>
+          <label class="radio-label">
+            <input type="radio" name="registrationType" value="author_academic_manager">
+            <span>Author, academic or manager</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="registrationType" value="student">
+            <span>Undergraduate, master or doctoral student</span>
+          </label>
+        </div>
+
+        <div id="feeDisplay" class="fee-display" hidden>
+          <span class="fee-display__label">Your registration fee:</span>
+          <span class="fee-display__amount" id="feeAmount"></span>
+          <span class="fee-display__period" id="feePeriod"></span>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="radio-group">
+          <p class="radio-group__label">Payment Method</p>
+          <label class="radio-label">
+            <input type="radio" name="paymentMethod" value="bank_transfer">
+            <span>Bank Transfer</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="paymentMethod" value="paypal">
+            <span>PayPal</span>
+          </label>
+        </div>
+
+        <div id="bankInfo" class="payment-info" hidden>
+          <p><strong>IBAN:</strong> 0035 0371 0000 4045 1307 9</p>
+          <p><strong>BIC / SWIFT:</strong> CGDIPTPL</p>
+        </div>
+        <div id="paypalInfo" class="payment-info" hidden>
+          <p><strong>PayPal:</strong> geral@advance.iseg.ulisboa.pt</p>
+        </div>
+        <p class="payment-note">
+          Please send proof of payment to
+          <a href="mailto:geral@advance.iseg.ulisboa.pt">geral@advance.iseg.ulisboa.pt</a>
+          together with this registration form.
+        </p>
+      </section>
+
+      <!-- 4. Invoicing -->
+      <section class="form-card">
+        <h2 class="form-card__title">Invoicing Information</h2>
+
+        <div class="field-row">
+          <div class="text-field">
+            <input id="invoiceName" name="invoiceName" type="text" placeholder=" " required>
+            <label for="invoiceName">Name</label>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="text-field">
+            <input id="vatNumber" name="vatNumber" type="text" placeholder=" ">
+            <label for="vatNumber">VAT Number (optional)</label>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="text-field">
+            <input id="invoiceAddress" name="invoiceAddress" type="text" placeholder=" " required>
+            <label for="invoiceAddress">Address</label>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="text-field">
+            <input id="invoiceCountryCity" name="invoiceCountryCity" type="text" placeholder=" " required>
+            <label for="invoiceCountryCity">Country, City and Zip Code</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Submit -->
+      <div class="submit-area">
+        <p id="formErrors" class="form-errors" hidden></p>
+        <button type="submit" class="btn-filled" id="submitBtn">Submit Registration</button>
+      </div>
+
+    </form>
+
+    <!-- Success state -->
+    <div id="successPanel" class="success-panel" hidden>
+      <div class="success-panel__icon" aria-hidden="true">✓</div>
+      <h2>Registration Submitted</h2>
+      <p>
+        Thank you for your registration. Please send your proof of payment to
+        <a href="mailto:geral@advance.iseg.ulisboa.pt">geral@advance.iseg.ulisboa.pt</a>.
+      </p>
+      <p class="success-panel__id">Submission ID: <strong id="submissionId"></strong></p>
+    </div>
+
+  </main>
+
+</body>
+</html>

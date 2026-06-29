@@ -2,7 +2,7 @@
 
 ## Collaboration Rules
 
-- **No implementation without explicit instruction.** Only write or edit code when explicitly told to (e.g. "go ahead", "implement it"). Questions, problem descriptions, plans, and agreements are not permission to act. Present a plan, then stop and wait.
+- **No implementation without explicit instruction.** Only write or edit code when explicitly told to (e.g. "go ahead", "implement it", "do it"). This applies even when the root cause of a bug is obvious and the fix is trivial. Diagnosing a problem is not permission to fix it. Proposing a fix is not permission to apply it. Present findings or a plan, then stop and wait for explicit approval.
 - **No git operations without explicit instruction.** Committing, pushing, or any other git action requires an explicit request.
 - **No `Co-Authored-By` lines in commits.**
 
@@ -51,14 +51,13 @@ Drive    Sheets    JSON Response
 ## File Structure
 
 ```
-frontend/
-    index.html
-    css/
-        style.css
-    js/
-        api.js        # HTTP calls to Apps Script
-        form.js       # Form state and submission flow
-        validation.js # Client-side validation (UX only)
+index.html            ← root (required by GitHub Pages)
+css/
+    style.css
+js/
+    api.js            # HTTP calls to Apps Script
+    form.js           # Form state and submission flow
+    validation.js     # Client-side validation (UX only)
 
 backend/
     Code.gs           # HTTP entry point (doPost)

@@ -1,0 +1,333 @@
+/* ── Variables ───────────────────────────────────────────────────────────── */
+:root {
+  --color-primary: #e63232;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ffdad6;
+  --color-on-primary-container: #410002;
+  --color-surface: #fffbff;
+  --color-on-surface: #201a19;
+  --color-surface-variant: #ede7e5;
+  --color-on-surface-variant: #534341;
+  --color-outline: #857370;
+  --color-error: #ba1a1a;
+}
+
+/* ── Reset & Base ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0eae9;
+  color: var(--color-on-surface);
+  min-height: 100vh;
+}
+
+a { color: var(--color-primary); }
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.site-header {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 32px 24px;
+}
+.site-header__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.site-header__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.site-header__subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+/* ── Page Layout ─────────────────────────────────────────────────────────── */
+.page-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+/* ── Form Card ───────────────────────────────────────────────────────────── */
+.form-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.form-card__title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+/* ── Field Rows ──────────────────────────────────────────────────────────── */
+.field-row {
+  margin-bottom: 16px;
+}
+.field-row--two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Text Field (floating label) ─────────────────────────────────────────── */
+.text-field {
+  position: relative;
+  background: var(--color-surface-variant);
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid var(--color-outline);
+  width: 100%;
+  transition: border-color 0.15s, border-width 0.15s;
+}
+.text-field:focus-within {
+  border-bottom: 2px solid var(--color-primary);
+}
+.text-field input {
+  display: block;
+  width: 100%;
+  padding: 22px 12px 8px;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-on-surface);
+  outline: none;
+  min-height: 56px;
+}
+.text-field label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--color-on-surface-variant);
+  pointer-events: none;
+  transition: top 0.15s ease, font-size 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.text-field input:focus + label,
+.text-field input:not(:placeholder-shown) + label {
+  top: 10px;
+  transform: none;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+/* ── Section Divider ─────────────────────────────────────────────────────── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-surface-variant);
+  margin: 20px 0;
+}
+
+/* ── Radio Group ─────────────────────────────────────────────────────────── */
+.radio-group {
+  margin-bottom: 20px;
+}
+.radio-group__label {
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 4px 0;
+  user-select: none;
+}
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.btn-filled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.btn-filled:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.btn-filled:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.btn-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-outlined:hover {
+  background: rgba(230, 50, 50, 0.08);
+}
+
+/* ── File Upload ─────────────────────────────────────────────────────────── */
+.file-upload {
+  margin-top: 4px;
+}
+.file-upload__label {
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.file-upload__control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.file-upload__name {
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant);
+}
+.field-hint {
+  font-weight: 300;
+  color: var(--color-outline);
+}
+.inline-error {
+  font-size: 0.8rem;
+  color: var(--color-error);
+  margin-top: 6px;
+}
+
+/* ── Fee Display ─────────────────────────────────────────────────────────── */
+.fee-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+.fee-display__label {
+  font-size: 0.875rem;
+}
+.fee-display__amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.fee-display__period {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+/* ── Payment Info ────────────────────────────────────────────────────────── */
+.payment-info {
+  background: var(--color-surface-variant);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.payment-note {
+  font-size: 0.85rem;
+  color: var(--color-on-surface-variant);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ── Submit Area ─────────────────────────────────────────────────────────── */
+.submit-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+.form-errors {
+  width: 100%;
+  background: #fce8e8;
+  color: var(--color-error);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* ── Success Panel ───────────────────────────────────────────────────────── */
+.success-panel {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.success-panel__icon {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+.success-panel h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.success-panel p {
+  color: var(--color-on-surface-variant);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.success-panel__id {
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .field-row--two {
+    grid-template-columns: 1fr;
+  }
+  .site-header__title {
+    font-size: 1.2rem;
+  }
+  .form-card {
+    padding: 20px 16px;
+  }
+}
