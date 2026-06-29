@@ -79,6 +79,8 @@ function populatePrintSummary(data, applicationId) {
   document.getElementById('p-registrationType').textContent = REGISTRATION_TYPE_LABELS[data.registrationType] ?? data.registrationType;
   document.getElementById('p-fee').textContent           = fee ? `€${fee} (${period === 'early' ? 'Early' : 'Standard'} registration)` : '—';
   document.getElementById('p-paymentMethod').textContent = PAYMENT_METHOD_LABELS[data.paymentMethod] ?? data.paymentMethod;
+  document.getElementById('p-bankInfo').hidden   = data.paymentMethod !== 'bank_transfer';
+  document.getElementById('p-paypalInfo').hidden = data.paymentMethod !== 'paypal';
   document.getElementById('p-invoiceName').textContent   = data.invoiceName;
   document.getElementById('p-invoiceAddress').textContent    = data.invoiceAddress;
   document.getElementById('p-invoiceCountryCity').textContent = data.invoiceCountryCity;
