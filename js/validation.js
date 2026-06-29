@@ -32,6 +32,19 @@ export function validateForm(data, paperFile) {
 
   if (data.isAuthor) {
     if (!data.paperTitle?.trim()) errors.push('Paper title is required for authors.');
+
+    if (!data.authors?.length) {
+      errors.push('At least one author is required.');
+    } else {
+      data.authors.forEach((author, i) => {
+        const n = i + 1;
+        if (!author.name?.trim())        errors.push(`Author ${n}: name is required.`);
+        if (!author.institution?.trim()) errors.push(`Author ${n}: institution is required.`);
+        if (!author.email?.trim())       errors.push(`Author ${n}: email is required.`);
+        else if (!EMAIL_RE.test(author.email)) errors.push(`Author ${n}: please enter a valid email.`);
+      });
+    }
+
     if (!data.presentationFormat) errors.push('Please select a presentation format.');
     if (!paperFile) {
       errors.push('Please upload your paper (DOCX).');

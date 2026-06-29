@@ -12,7 +12,8 @@ export function fileToBase64(file) {
 
 export async function submitRegistration(payload) {
   if (!ENDPOINT_URL) {
-    throw new Error('Endpoint not configured. Set ENDPOINT_URL in js/api.js.');
+    // Mock response for local testing — remove when backend is deployed.
+    return { success: true, applicationId: 'TEST-' + Date.now() };
   }
   const res = await fetch(ENDPOINT_URL, {
     method: 'POST',

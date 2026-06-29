@@ -92,8 +92,24 @@ Derived from `REGISTRATION-FORM-IHRM-2027.docx` at the repo root.
 |---------------------|----------|----------|
 | isAuthor            | boolean  | yes      |
 | paperTitle          | text     | if author |
+| authors             | array    | if author (min 1) |
 | presentationFormat  | enum     | if author (`onsite` / `online`) |
 | paper               | file     | if author (DOCX only) |
+
+Each `authors` entry:
+
+| Field       | Type  | Required |
+|-------------|-------|----------|
+| name        | text  | yes      |
+| institution | text  | yes      |
+| email       | email | yes      |
+
+Sent to the backend as an array of objects:
+```json
+"authors": [
+  { "name": "Jane Doe", "institution": "Nova SBE", "email": "jane@example.com" }
+]
+```
 
 ### Registration & Payment
 
@@ -215,7 +231,8 @@ Each submission gets its own folder named `Full Name — <id>`. Non-author regis
 
 - All required fields must be present and non-empty.
 - Email must match a valid format.
-- If `isAuthor` is `true`, `paperTitle`, `presentationFormat`, and `paper` are required.
+- If `isAuthor` is `true`, `paperTitle`, `authors`, `presentationFormat`, and `paper` are required.
+- `authors` must have at least one entry; each entry must have a non-empty `name`, `institution`, and valid `email`.
 - Files must be valid Base64.
 - Allowed MIME type for paper: `application/vnd.openxmlformats-officedocument.wordprocessingml.document` (DOCX only).
 - Maximum file size: 20 MB.

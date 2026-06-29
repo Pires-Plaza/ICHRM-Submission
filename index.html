@@ -94,6 +94,14 @@
             </div>
           </div>
 
+          <div class="authors-section">
+            <div class="authors-section__header">
+              <p class="radio-group__label">Authors <span class="field-hint">(at least 1 required)</span></p>
+              <button type="button" class="btn-text" id="addAuthorBtn">+ Add Author</button>
+            </div>
+            <div id="authorsList"></div>
+          </div>
+
           <div class="radio-group">
             <p class="radio-group__label">Presentation Format</p>
             <label class="radio-label">
@@ -211,10 +219,71 @@
       <div class="success-panel__icon" aria-hidden="true">✓</div>
       <h2>Registration Submitted</h2>
       <p>
-        Thank you for your registration. Please send your proof of payment to
+        Thank you for your registration. Please save this form as a PDF and send it
+        together with your proof of payment to
         <a href="mailto:geral@advance.iseg.ulisboa.pt">geral@advance.iseg.ulisboa.pt</a>.
       </p>
       <p class="success-panel__id">Submission ID: <strong id="submissionId"></strong></p>
+      <button type="button" class="btn-filled" id="savePdfBtn">Save as PDF</button>
+    </div>
+
+    <!-- Print summary (hidden on screen, shown on print) -->
+    <div id="printSummary">
+      <div class="print-header">
+        <h1>6th International Conference in HRM — 2027</h1>
+        <h2>Registration Confirmation</h2>
+        <p class="print-meta">
+          Submission ID: <strong id="p-submissionId"></strong>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          Date: <span id="p-date"></span>
+        </p>
+      </div>
+
+      <div class="print-section">
+        <h3>Participant Identification</h3>
+        <dl>
+          <div class="print-row"><dt>Full Name</dt><dd id="p-name"></dd></div>
+          <div class="print-row"><dt>Institution</dt><dd id="p-institution"></dd></div>
+          <div class="print-row"><dt>Address</dt><dd id="p-address"></dd></div>
+          <div class="print-row"><dt>Country, City, Zip</dt><dd id="p-countryCity"></dd></div>
+          <div class="print-row"><dt>Email</dt><dd id="p-email"></dd></div>
+          <div class="print-row"><dt>Phone</dt><dd id="p-phone"></dd></div>
+          <div class="print-row"><dt>Academic Degree</dt><dd id="p-academicDegree"></dd></div>
+        </dl>
+      </div>
+
+      <div class="print-section">
+        <h3>Conference Participation</h3>
+        <dl>
+          <div class="print-row"><dt>Presenting Author</dt><dd id="p-isAuthor"></dd></div>
+          <div class="print-row" id="p-row-paperTitle"><dt>Paper Title</dt><dd id="p-paperTitle"></dd></div>
+          <div id="p-authors-container"></div>
+          <div class="print-row" id="p-row-presentationFormat"><dt>Presentation Format</dt><dd id="p-presentationFormat"></dd></div>
+        </dl>
+      </div>
+
+      <div class="print-section">
+        <h3>Registration &amp; Payment</h3>
+        <dl>
+          <div class="print-row"><dt>Registration Type</dt><dd id="p-registrationType"></dd></div>
+          <div class="print-row"><dt>Registration Fee</dt><dd id="p-fee"></dd></div>
+          <div class="print-row"><dt>Payment Method</dt><dd id="p-paymentMethod"></dd></div>
+        </dl>
+      </div>
+
+      <div class="print-section">
+        <h3>Invoicing Information</h3>
+        <dl>
+          <div class="print-row"><dt>Name</dt><dd id="p-invoiceName"></dd></div>
+          <div class="print-row" id="p-row-vatNumber"><dt>VAT Number</dt><dd id="p-vatNumber"></dd></div>
+          <div class="print-row"><dt>Address</dt><dd id="p-invoiceAddress"></dd></div>
+          <div class="print-row"><dt>Country, City, Zip</dt><dd id="p-invoiceCountryCity"></dd></div>
+        </dl>
+      </div>
+
+      <div class="print-footer">
+        <p>Please send this form together with your proof of payment to <strong>geral@advance.iseg.ulisboa.pt</strong>.</p>
+      </div>
     </div>
 
   </main>
