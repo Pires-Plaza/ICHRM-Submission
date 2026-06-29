@@ -17,7 +17,7 @@ export async function submitRegistration(payload) {
   }
   const res = await fetch(ENDPOINT_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify(payload),
   });
   if (!res.ok) throw new Error(`Server error ${res.status}.`);
