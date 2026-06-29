@@ -1,5 +1,13 @@
 # CLAUDE.md — ICHRM-Submission
 
+## Collaboration Rules
+
+- **No implementation without explicit instruction.** Only write or edit code when explicitly told to (e.g. "go ahead", "implement it"). Questions, problem descriptions, plans, and agreements are not permission to act. Present a plan, then stop and wait.
+- **No git operations without explicit instruction.** Committing, pushing, or any other git action requires an explicit request.
+- **No `Co-Authored-By` lines in commits.**
+
+---
+
 ## Project Overview
 
 A **conference paper submission system** for the International Conference in HRM (ICHRM), with two clients (GitHub Pages website + iOS app) sharing a single Google Apps Script backend.
