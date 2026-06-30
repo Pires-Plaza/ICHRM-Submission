@@ -481,6 +481,16 @@ a { color: var(--color-primary); }
   }
 }
 
+/* ── Prose (privacy policy, static pages) ───────────────────────────────── */
+.form-card p {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--color-on-surface);
+}
+.form-card p + p {
+  margin-top: 10px;
+}
+
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
   .field-row--two {
